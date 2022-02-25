@@ -20,19 +20,19 @@ public class ShowtimeServiceImpl implements ShowtimeService {
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public void save(Showtime showtime) {
+    public void guardar(Showtime showtime) {
         showtimeRepository.save(showtime);
     }
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public void delete(Showtime showtime) {
+    public void eliminar(Showtime showtime) {
         showtimeRepository.delete(showtime);
     }
 
     @Override
     @Transactional(readOnly = true)
-    public List<Showtime> findAll() {
+    public List<Showtime> listar() {
         return showtimeRepository.findAll();
     }
 
@@ -48,7 +48,7 @@ public class ShowtimeServiceImpl implements ShowtimeService {
         ModelMapper modelMapper = new ModelMapper();
         Movies movie = modelMapper.
                 map(moviesClient.findByID(showtime.getMoviesId()).getData(),Movies.class);
-        showtime.setMovie(movie);
+        showtime.setMovies(movie);
         return showtimeRepository.findByNumberInvoice(numberShowtime);
     }
 

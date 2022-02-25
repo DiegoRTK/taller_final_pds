@@ -31,7 +31,7 @@ public class Showtime {
     private Long moviesId;
 
     @Transient
-    private Movies movie;
+    private Movies movies;
 
     @Override
     public boolean equals(Object o) {
@@ -40,6 +40,8 @@ public class Showtime {
         Showtime that = (Showtime) o;
         return Objects.equals(id, that.id);
     }
+
+
 
     @Override
     public int hashCode() {

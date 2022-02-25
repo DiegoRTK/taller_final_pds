@@ -27,7 +27,7 @@ public class UserController {
         if(result.hasErrors()){
             return builder.failed(formatMessage(result));
         }
-        productService.save(user);
+        productService.guardar(user);
         return builder.success(user);
     }
 
@@ -37,13 +37,13 @@ public class UserController {
         if(user==null){
             return builder.failed("Not found product");
         }
-        productService.delete(user);
+        productService.eliminar(user);
         return builder.success(user);
     }
 
     @GetMapping
     public Response findAll(){
-        List<User> user = productService.findAll();
+        List<User> user = productService.listar();
         if(user.isEmpty()){
             return builder.failed("Products is empty");
         }

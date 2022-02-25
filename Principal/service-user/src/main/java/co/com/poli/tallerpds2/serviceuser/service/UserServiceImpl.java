@@ -16,19 +16,19 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public void save(User user) {
+    public void guardar(User user) {
         userRepository.save(user);
     }
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public void delete(User user) {
+    public void eliminar(User user) {
         userRepository.delete(user);
     }
 
     @Override
     @Transactional(readOnly = true)
-    public List<User> findAll() {
+    public List<User> listar() {
         return userRepository.findAll();
     }
 

@@ -16,19 +16,19 @@ public class MoviesServiceImpl implements MoviesService {
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public void save(Movies movie) {
+    public void guardar(Movies movie) {
         MoviesRepository.save(movie);
     }
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public void delete(Movies movie) {
+    public void eliminar(Movies movie) {
         MoviesRepository.delete(movie);
     }
 
     @Override
     @Transactional(readOnly = true)
-    public List<Movies> findAll() {
+    public List<Movies> listar() {
         return MoviesRepository.findAll();
     }
 

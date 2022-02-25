@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface MoviesService {
 
-    void save(Movies movie);
-    void delete(Movies movie);
-    List<Movies> findAll();
+    void guardar(Movies movie);
+    void eliminar(Movies movie);
+    List<Movies> listar();
     Movies findById(Long id);
 
 }

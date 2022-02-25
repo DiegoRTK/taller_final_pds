@@ -25,16 +25,16 @@ public class ShowtimeController {
     private final ResponseBuilder builder;
 
     @PostMapping()
-    public Response save(@Valid @RequestBody Showtime showtime, BindingResult result){
+    public Response guardar(@Valid @RequestBody Showtime showtime, BindingResult result){
         if(result.hasErrors()){
             return builder.failed(formatMessage(result));
         }
-        showtimeService.save(showtime);
+        showtimeService.guardar(showtime);
         return builder.success(showtime);
     }
 
     @DeleteMapping("/{id}")
-    public Response delete(@PathVariable("id") Long id) {
+    public Response eliminar(@PathVariable("id") Long id) {
         Showtime showtime = showtimeService.findById(id);
         if(showtime==null){
             return builder.failed(showtime);

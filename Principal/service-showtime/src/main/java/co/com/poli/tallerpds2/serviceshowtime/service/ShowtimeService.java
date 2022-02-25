@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface ShowtimeService {
 
-    void save(Showtime showtime);
-    void delete(Showtime showtime);
-    List<Showtime> findAll();
+    void guardar(Showtime showtime);
+    void eliminar(Showtime showtime);
+    List<Showtime> listar();
     Showtime findById(Long id);
     Showtime findByNumberInvoice(String numberShowtime);
 

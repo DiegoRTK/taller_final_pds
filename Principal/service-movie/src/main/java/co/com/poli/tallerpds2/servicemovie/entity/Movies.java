@@ -25,15 +25,15 @@ public class Movies {
     private Long id;
 
     @Column(name = "title", nullable = false)
-    @NotEmpty(message = "La pelicula debe tener un titulo")
+    @NotEmpty(message = "Move must have title")
     private String title;
 
     @Column(name = "director", nullable = false)
-    @NotEmpty(message = "La pelicula un director")
+    @NotEmpty(message = "Movie must have a director")
     private String director;
 
     @Column(name = "raiting")
     @Min(1)
-    @Max(5)
+    @Max(10)
     private String raiting;
 }

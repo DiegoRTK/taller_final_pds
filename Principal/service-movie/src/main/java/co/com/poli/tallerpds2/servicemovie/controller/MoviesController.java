@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class MoviesController {
 
-    private final MoviesService productService;
+    private final MoviesService movieService;
     private final ResponseBuilder builder;
 
     @PostMapping
@@ -27,23 +27,23 @@ public class MoviesController {
         if(result.hasErrors()){
             return builder.failed(formatMessage(result));
         }
-        productService.save(movie);
+        movieService.guardar(movie);
         return builder.success(movie);
     }
 
     @DeleteMapping("/{id}")
     public Response delete(@PathVariable("id") Long id){
-         Movies movie = productService.findById(id);
+         Movies movie = movieService.findById(id);
         if(movie==null){
             return builder.failed("Not found product");
         }
-        productService.delete(movie);
+        movieService.eliminar(movie);
         return builder.success(movie);
     }
 
     @GetMapping
     public Response findAll(){
-        List<Movies> movie = productService.findAll();
+        List<Movies> movie = movieService.listar();
         if(movie.isEmpty()){
             return builder.failed("Products is empty");
         }
@@ -51,7 +51,7 @@ public class MoviesController {
     }
     @GetMapping("/{id}")
     public Response findById(@PathVariable("id") Long id){
-        Movies movie = productService.findById(id);
+        Movies movie = movieService.findById(id);
         if(movie==null){
             return builder.failed("Not found product");
         }

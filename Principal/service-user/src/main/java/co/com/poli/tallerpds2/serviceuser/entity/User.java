@@ -22,11 +22,11 @@ public class User {
     private Long id;
 
     @Column(name = "name", nullable = false)
-    @NotEmpty(message = "El nombre del usuario no puede ser vacio")
+    @NotEmpty(message = "First name can't be empty")
     private String name;
 
     @Column(name = "lastname", nullable = false)
-    @NotEmpty(message = "El apellido del usuario no puede ser vacio")
+    @NotEmpty(message = "Lastname can't be empty")
     private String lastname;
 
 

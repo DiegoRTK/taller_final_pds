@@ -5,7 +5,7 @@ spring:
     config:
       server:
         git:
-          uri: file:///D:/ProjectsPDS/config-data
+          uri: file:///C://config-data
   security:
     user:
       name: ${CONFIG_USER}
